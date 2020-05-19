@@ -19,6 +19,12 @@ public class StartActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_start);
 
+        bt_r = findViewById(R.id.bt_r);
+        bt_s = findViewById(R.id.bt_s);
+        bt_p = findViewById(R.id.bt_p);
+
+
+
 
 
     }
