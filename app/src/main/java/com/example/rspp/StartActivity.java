@@ -22,15 +22,14 @@ public class StartActivity extends AppCompatActivity {
 
     ImageView hand_ani;
     ImageView hand_com;
+
     AnimationDrawable hand_animation;
 
+    TextView sv;
+    TextView cv;
 
     int score = 0;
     int cw = 0;
-    
-
-
-
 
 
 
@@ -38,6 +37,10 @@ public class StartActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_start);
+
+        sv = (TextView)findViewById(R.id.score);
+        cv = (TextView)findViewById(R.id.continuous);
+
         hand_ani = findViewById(R.id.rsp_ani_image_view);
         hand_com = findViewById(R.id.hand_computer);
         hand_animation = (AnimationDrawable) hand_ani.getDrawable();
@@ -65,6 +68,10 @@ public class StartActivity extends AppCompatActivity {
                                             hand_ani.setVisibility(View.VISIBLE);
                                         }
                                     }).show();
+                            if(cw >= 1){
+                                cw = 0;
+                                cv.setText(String.valueOf("" + cw));
+                            }
                         }else if (view.getId()== R.id.bt_s){
                             Snackbar.make(view, "졌습니다.", Snackbar.LENGTH_INDEFINITE)
                                     .setAction("OK", new View.OnClickListener() {
@@ -74,6 +81,10 @@ public class StartActivity extends AppCompatActivity {
                                             hand_ani.setVisibility(View.VISIBLE);
                                         }
                                     }).show();
+                            if(cw >= 1){
+                                cw = 0;
+                                cv.setText(String.valueOf("" + cw));
+                            }
                         }else if(view.getId() == R.id.bt_p){
                             Snackbar.make(view, "이겼습니다.", Snackbar.LENGTH_INDEFINITE)
                                     .setAction("OK", new View.OnClickListener() {
@@ -83,8 +94,28 @@ public class StartActivity extends AppCompatActivity {
                                             hand_ani.setVisibility(View.VISIBLE);
                                         }
                                     }).show();
+                            if (cw >= 10){
+                                Toast.makeText(this,
+                                        "10회 연속 승리! 점수 4점씩!",Toast.LENGTH_SHORT).show();
+                                score = score + 4;
+                                cw = cw + 1;
+                                sv.setText(String.valueOf("" + score));
+                                cv.setText(String.valueOf("" + cw));
+
+                            }else if (cw >= 1){
+                                score = score + 2;
+                                cw = cw + 1;
+                                sv.setText(String.valueOf("" + score));
+                                cv.setText(String.valueOf("" + cw));
+                            }else{
+                                score = score + 1;
+                                cw = cw + 1;
+                                sv.setText(String.valueOf("" + score));
+                                cv.setText(String.valueOf("" + cw));
+                            }
                         }
                         break;
+
                     case 2:
                         hand_com.setImageResource(R.drawable.scissors);
                         if(view.getId() == R.id.bt_r) {
@@ -96,6 +127,26 @@ public class StartActivity extends AppCompatActivity {
                                             hand_ani.setVisibility(View.VISIBLE);
                                         }
                                     }).show();
+                            if (cw >= 10){
+                                Toast.makeText(this,
+                                        "10회 연속 승리! 점수 4점씩!",Toast.LENGTH_SHORT).show();
+                                score = score + 4;
+                                cw = cw + 1;
+                                sv.setText(String.valueOf("" + score));
+                                cv.setText(String.valueOf("" + cw));
+
+                            }else if (cw >= 1){
+                                score = score + 2;
+                                cw = cw + 1;
+                                sv.setText(String.valueOf("" + score));
+                                cv.setText(String.valueOf("" + cw));
+                            }else{
+                                score = score + 1;
+                                cw = cw + 1;
+                                sv.setText(String.valueOf("" + score));
+                                cv.setText(String.valueOf("" + cw));
+                            }
+
                         }else if(view.getId() == R.id.bt_s){
                             Snackbar.make(view,"비겼습니다.", Snackbar.LENGTH_INDEFINITE)
                                     .setAction("OK", new View.OnClickListener() {
@@ -105,6 +156,10 @@ public class StartActivity extends AppCompatActivity {
                                             hand_ani.setVisibility(View.VISIBLE);
                                         }
                                     }).show();
+                            if(cw >= 1){
+                                cw = 0;
+                                cv.setText(String.valueOf("" + cw));
+                            }
                         }else if(view.getId() == R.id.bt_p){
                             Snackbar.make(view,"졌습니다.", Snackbar.LENGTH_INDEFINITE)
                                     .setAction("OK", new View.OnClickListener() {
@@ -114,8 +169,13 @@ public class StartActivity extends AppCompatActivity {
                                             hand_ani.setVisibility(View.VISIBLE);
                                         }
                                     }).show();
+                            if(cw >= 1){
+                                cw = 0;
+                                cv.setText(String.valueOf("" + cw));
+                            }
                         }
                         break;
+
                     case 3:
                         hand_com.setImageResource(R.drawable.paper);
                         if(view.getId() == R.id.bt_r) {
@@ -127,6 +187,11 @@ public class StartActivity extends AppCompatActivity {
                                             hand_ani.setVisibility(View.VISIBLE);
                                         }
                                     }).show();
+                            if(cw >= 1){
+                                cw = 0;
+                                cv.setText(String.valueOf("" + cw));
+                            }
+
                         }else if(view.getId() == R.id.bt_s){
                             Snackbar.make(view,"이겼습니다.", Snackbar.LENGTH_INDEFINITE)
                                     .setAction("OK", new View.OnClickListener() {
@@ -136,6 +201,26 @@ public class StartActivity extends AppCompatActivity {
                                             hand_ani.setVisibility(View.VISIBLE);
                                         }
                                     }).show();
+                            if (cw >= 10){
+                                Toast.makeText(this,
+                                        "10회 연속 승리! 점수 4점씩!",Toast.LENGTH_SHORT).show();
+                                score = score + 4;
+                                cw = cw + 1;
+                                sv.setText(String.valueOf("" + score));
+                                cv.setText(String.valueOf("" + cw));
+
+                            }else if (cw >= 1){
+                                score = score + 2;
+                                cw = cw + 1;
+                                sv.setText(String.valueOf("" + score));
+                                cv.setText(String.valueOf("" + cw));
+                            }else{
+                                score = score + 1;
+                                cw = cw + 1;
+                                sv.setText(String.valueOf("" + score));
+                                cv.setText(String.valueOf("" + cw));
+                            }
+
                         }else if(view.getId() == R.id.bt_p){
                             Snackbar.make(view,"비겼습니다.", Snackbar.LENGTH_INDEFINITE)
                                     .setAction("OK", new View.OnClickListener() {
@@ -145,6 +230,10 @@ public class StartActivity extends AppCompatActivity {
                                             hand_ani.setVisibility(View.VISIBLE);
                                         }
                                     }).show();
+                            if(cw >= 1){
+                                cw = 0;
+                                cv.setText(String.valueOf("" + cw));
+                            }
                         }
                         break;
                 }
