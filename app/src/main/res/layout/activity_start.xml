@@ -122,28 +122,30 @@
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:text="가위"
-                android:onClick="onButtonClicked"
-                android:layout_weight="20">
+                android:layout_weight="20"
+                android:onClick="btClick"/>
 
-            </Button>
+
 
             <Button
                 android:id="@+id/bt_r"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:text="바위"
-                android:layout_weight="20">
+                android:layout_weight="20"
+                android:onClick="btClick"/>
 
-            </Button>
+
 
             <Button
                 android:id="@+id/bt_p"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:text="보"
-                android:layout_weight="20">
+                android:layout_weight="20"
+                android:onClick="btClick"/>
 
-            </Button>
+
 
 
 
