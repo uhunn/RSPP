@@ -4,8 +4,8 @@
 
 
 
-    <item android:drawable="@drawable/rock" android:duration="500"/>
-    <item android:drawable="@drawable/scissors" android:duration="500"/>
-    <item android:drawable="@drawable/paper" android:duration="500"/>
+    <item android:drawable="@drawable/rock" android:duration="100"/>
+    <item android:drawable="@drawable/scissors" android:duration="100"/>
+    <item android:drawable="@drawable/paper" android:duration="100"/>
 
 </animation-list>

@@ -122,6 +122,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:text="가위"
+                android:onClick="onButtonClicked"
                 android:layout_weight="20">
 
             </Button>
