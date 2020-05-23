@@ -36,7 +36,6 @@ public class StartActivity extends AppCompatActivity {
 
     int score = 0;
     int cw = 0;
-    int F_Connection = 0;
     public int coin_start = ((MainActivity)MainActivity.mContext).coin;
 
 
@@ -48,6 +47,9 @@ public class StartActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_start);
+
+        Intent intent = getIntent();
+        score = Integer.parseInt(intent.getStringExtra("score"));
 
         start_Context = this;
 
@@ -65,14 +67,15 @@ public class StartActivity extends AppCompatActivity {
         }
 
     public void btClick(View view){
-        //if (F_Connection == 0){}
-
-
 
 
         if (coin_start == 0){
+            AppData ad = new AppData();
+            ad.setScore(score);
+            ad.setFPC(1);
             Intent intent = new Intent(StartActivity.this, PopupActivity.class);
             startActivity(intent);
+
         }else {
 
             coin_start = coin_start - 1;

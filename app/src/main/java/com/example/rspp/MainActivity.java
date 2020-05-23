@@ -17,13 +17,19 @@ public class MainActivity extends AppCompatActivity {
     TextView s_c_v;
     public int coin = 0;
     int FPC = 0;
+    int score = 0;
 
 
 
-    @Override
+
+
+        @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        AppData ad = new AppData();
+        FPC = ad.getFPC();
+        score = ad.getScore();
 
 
         textView_start = findViewById(R.id.tv_Start);
@@ -42,8 +48,8 @@ public class MainActivity extends AppCompatActivity {
                 public void onClick(View v) {
 
                     if (FPC == 0){
-                        FPC = FPC + 1;
                         coin = coin + 10;
+                        FPC = FPC + 1;
                         Intent intent = new Intent(MainActivity.this, FristPlayPopupActivity.class);
                         startActivity(intent);
 
@@ -55,6 +61,7 @@ public class MainActivity extends AppCompatActivity {
                             startActivity(intent);
                         } else {
                             Intent intent = new Intent(MainActivity.this, StartActivity.class);
+                            intent.putExtra("score", score + "");
                             startActivity(intent);
 
                         }
@@ -64,13 +71,13 @@ public class MainActivity extends AppCompatActivity {
             });
 
 
-        textView_setting.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, SettingActivity.class);
-                startActivity(intent);
-            }
-        });
+            textView_setting.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent intent = new Intent(MainActivity.this, SettingActivity.class);
+                    startActivity(intent);
+                }
+            });
     }
 
 

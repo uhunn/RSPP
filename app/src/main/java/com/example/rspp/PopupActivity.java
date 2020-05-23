@@ -14,6 +14,11 @@ public class PopupActivity extends AppCompatActivity {
 
 
     Button okBtn;
+    int score = 0;
+    int FPC = 0;
+
+
+
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -21,6 +26,7 @@ public class PopupActivity extends AppCompatActivity {
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
                 WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_pop);
+
 
         okBtn = (Button) findViewById(R.id.pop_okbt);
     }
