@@ -2,6 +2,7 @@ package com.example.rspp;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.drawable.AnimatedImageDrawable;
 import android.graphics.drawable.AnimationDrawable;
 import android.os.Bundle;
@@ -34,22 +35,18 @@ public class StartActivity extends AppCompatActivity {
     TextView cv;
     TextView coin_v;
 
-    int score = 0;
+    int score;
     int cw = 0;
     public int coin_start = ((MainActivity)MainActivity.mContext).coin;
-
-
-
-
-
+    SharedPreferences pref_score;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_start);
 
-        Intent intent = getIntent();
-        score = Integer.parseInt(intent.getStringExtra("score"));
+
+
 
         start_Context = this;
 
@@ -64,15 +61,16 @@ public class StartActivity extends AppCompatActivity {
 
         coin_v.setText(""+coin_start);
 
+        pref_score = getSharedPreferences("score", MODE_PRIVATE);
+        score = pref_score.getInt("score",0);
+        System.out.println(score+" : 스타트 스코어값");
+        sv.setText(score+"");
         }
 
     public void btClick(View view){
 
 
         if (coin_start == 0){
-            AppData ad = new AppData();
-            ad.setScore(score);
-            ad.setFPC(1);
             Intent intent = new Intent(StartActivity.this, PopupActivity.class);
             startActivity(intent);
 
@@ -131,17 +129,26 @@ public class StartActivity extends AppCompatActivity {
                                     Toast.makeText(this,
                                             "10회 연속 승리! 점수 4점씩!", Toast.LENGTH_SHORT).show();
                                     score = score + 4;
+                                    SharedPreferences.Editor editor = pref_score.edit();
+                                    editor.putInt("score",score);
+                                    editor.commit();
                                     cw = cw + 1;
                                     sv.setText("" + score);
                                     cv.setText("" + cw);
 
                                 } else if (cw >= 1) {
                                     score = score + 2;
+                                    SharedPreferences.Editor editor = pref_score.edit();
+                                    editor.putInt("score",score);
+                                    editor.commit();
                                     cw = cw + 1;
                                     sv.setText("" + score);
                                     cv.setText("" + cw);
                                 } else {
                                     score = score + 1;
+                                    SharedPreferences.Editor editor = pref_score.edit();
+                                    editor.putInt("score",score);
+                                    editor.commit();
                                     cw = cw + 1;
                                     sv.setText("" + score);
                                     cv.setText("" + cw);
@@ -164,17 +171,26 @@ public class StartActivity extends AppCompatActivity {
                                     Toast.makeText(this,
                                             "10회 연속 승리! 점수 4점씩!", Toast.LENGTH_SHORT).show();
                                     score = score + 4;
+                                    SharedPreferences.Editor editor = pref_score.edit();
+                                    editor.putInt("score",score);
+                                    editor.commit();
                                     cw = cw + 1;
                                     sv.setText("" + score);
                                     cv.setText("" + cw);
 
                                 } else if (cw >= 1) {
                                     score = score + 2;
+                                    SharedPreferences.Editor editor = pref_score.edit();
+                                    editor.putInt("score",score);
+                                    editor.commit();
                                     cw = cw + 1;
                                     sv.setText("" + score);
                                     cv.setText("" + cw);
                                 } else {
                                     score = score + 1;
+                                    SharedPreferences.Editor editor = pref_score.edit();
+                                    editor.putInt("score",score);
+                                    editor.commit();
                                     cw = cw + 1;
                                     sv.setText("" + score);
                                     cv.setText("" + cw);
@@ -238,17 +254,26 @@ public class StartActivity extends AppCompatActivity {
                                     Toast.makeText(this,
                                             "10회 연속 승리! 점수 4점씩!", Toast.LENGTH_SHORT).show();
                                     score = score + 4;
+                                    SharedPreferences.Editor editor = pref_score.edit();
+                                    editor.putInt("score",score);
+                                    editor.commit();
                                     cw = cw + 1;
                                     sv.setText("" + score);
                                     cv.setText("" + cw);
 
                                 } else if (cw >= 1) {
                                     score = score + 2;
+                                    SharedPreferences.Editor editor = pref_score.edit();
+                                    editor.putInt("score",score);
+                                    editor.commit();
                                     cw = cw + 1;
                                     sv.setText("" + score);
                                     cv.setText("" + cw);
                                 } else {
                                     score = score + 1;
+                                    SharedPreferences.Editor editor = pref_score.edit();
+                                    editor.putInt("score",score);
+                                    editor.commit();
                                     cw = cw + 1;
                                     sv.setText("" + score);
                                     cv.setText("" + cw);
