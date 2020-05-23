@@ -36,6 +36,7 @@ public class StartActivity extends AppCompatActivity {
 
     int score = 0;
     int cw = 0;
+    int F_Connection = 0;
     public int coin_start = ((MainActivity)MainActivity.mContext).coin;
 
 
@@ -64,6 +65,9 @@ public class StartActivity extends AppCompatActivity {
         }
 
     public void btClick(View view){
+        //if (F_Connection == 0){}
+
+
 
 
         if (coin_start == 0){

@@ -14,7 +14,11 @@ public class MainActivity extends AppCompatActivity {
 
     TextView textView_start;
     TextView textView_setting;
-    public int coin = 10;
+    TextView s_c_v;
+    public int coin = 0;
+    int FPC = 0;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,7 +28,10 @@ public class MainActivity extends AppCompatActivity {
 
         textView_start = findViewById(R.id.tv_Start);
         textView_setting = findViewById(R.id.tv_setting);
+        s_c_v = findViewById(R.id.Start_Coin);
         mContext = this;
+
+        s_c_v.setText("" + coin);
 
 
 
@@ -33,14 +40,23 @@ public class MainActivity extends AppCompatActivity {
             textView_start.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    if (coin == 0) {
-                        Intent intent = new Intent(MainActivity.this, PopupActivity.class);
-                        startActivity(intent);
-                    } else {
-                        Intent intent = new Intent(MainActivity.this, StartActivity.class);
+
+                    if (FPC == 0){
+                        FPC = FPC + 1;
+                        Intent intent = new Intent(MainActivity.this, FristPlayPopupActivity.class);
                         startActivity(intent);
 
+                    }else{
+                        if (coin == 0) {
+                            Intent intent = new Intent(MainActivity.this, PopupActivityMain.class);
+                            startActivity(intent);
+                        } else {
+                            Intent intent = new Intent(MainActivity.this, StartActivity.class);
+                            startActivity(intent);
+
+                        }
                     }
+
                 }
             });
 
