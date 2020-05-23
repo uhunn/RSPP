@@ -14,7 +14,6 @@ import androidx.appcompat.app.AppCompatActivity;
 public class FristPlayPopupActivity extends AppCompatActivity {
 
     Button okBtn;
-    public int popCoin = ((MainActivity)MainActivity.mContext).coin;
     public static Context pop;
 
     @Override
@@ -30,7 +29,6 @@ public class FristPlayPopupActivity extends AppCompatActivity {
 
 
     public void mOK(View v){
-        popCoin = popCoin + 10;
         finish();
     }
 

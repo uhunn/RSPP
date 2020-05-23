@@ -43,8 +43,11 @@ public class MainActivity extends AppCompatActivity {
 
                     if (FPC == 0){
                         FPC = FPC + 1;
+                        coin = coin + 10;
                         Intent intent = new Intent(MainActivity.this, FristPlayPopupActivity.class);
                         startActivity(intent);
+
+                        s_c_v.setText(""+ coin);
 
                     }else{
                         if (coin == 0) {

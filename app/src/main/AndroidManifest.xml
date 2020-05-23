@@ -22,6 +22,9 @@
         <activity android:name=".PopupActivity"
             android:theme="@style/popupTheme" android:screenOrientation="portrait"></activity>
 
+        <activity android:name=".PopupActivityMain"
+            android:theme="@style/popupTheme" android:screenOrientation="portrait"></activity>
+
         <activity android:name=".FristPlayPopupActivity"
             android:theme="@style/popupTheme" android:screenOrientation="portrait"></activity>
     </application>
