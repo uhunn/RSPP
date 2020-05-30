@@ -298,7 +298,6 @@ public class StartActivity extends AppCompatActivity {
                     break;
 
             }
-
         }
     }
 

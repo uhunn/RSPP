@@ -17,7 +17,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".SettingActivity"/>
         <activity android:name=".StartActivity"/>
         <activity android:name=".PopupActivity"
             android:theme="@style/popupTheme" android:screenOrientation="portrait"></activity>
@@ -27,6 +26,9 @@
 
         <activity android:name=".FristPlayPopupActivity"
             android:theme="@style/popupTheme" android:screenOrientation="portrait"></activity>
+        <activity android:name=".Minigame"
+            android:theme="@style/AppTheme"
+            android:screenOrientation="landscape"></activity>
     </application>
 
 </manifest>

@@ -30,7 +30,7 @@ public class MainActivity extends AppCompatActivity {
         FPC = pref_FPC.getInt("FPC",0);
 
         textView_start = findViewById(R.id.tv_Start);
-        textView_setting = findViewById(R.id.tv_setting);
+        textView_setting = findViewById(R.id.tv_minigame);
         s_c_v = findViewById(R.id.Start_Coin);
         mContext = this;
 
@@ -76,7 +76,7 @@ public class MainActivity extends AppCompatActivity {
             textView_setting.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Intent intent = new Intent(MainActivity.this, SettingActivity.class);
+                    Intent intent = new Intent(MainActivity.this, Minigame.class);
                     startActivity(intent);
                 }
             });
