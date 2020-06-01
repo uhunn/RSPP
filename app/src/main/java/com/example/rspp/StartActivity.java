@@ -36,9 +36,11 @@ public class StartActivity extends AppCompatActivity {
     TextView coin_v;
 
     int score;
+    int coin;
     int cw = 0;
     public int coin_start = ((MainActivity)MainActivity.mContext).coin;
     SharedPreferences pref_score;
+    SharedPreferences pref_coin;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -59,12 +61,18 @@ public class StartActivity extends AppCompatActivity {
         hand_animation = (AnimationDrawable) hand_ani.getDrawable();
         hand_animation.start();
 
+
+        pref_coin = getSharedPreferences("coin", MODE_PRIVATE);
+        SharedPreferences.Editor editor = pref_coin.edit();
+        editor.putString("coin", "" + coin_start);
         coin_v.setText(""+coin_start);
 
         pref_score = getSharedPreferences("score", MODE_PRIVATE);
         score = pref_score.getInt("score",0);
-        System.out.println(score+" : 스타트 스코어값");
         sv.setText(score+"");
+
+
+
         }
 
     public void btClick(View view){
@@ -301,6 +309,10 @@ public class StartActivity extends AppCompatActivity {
         }
     }
 
+    public void onBackPressed(){
+        Intent intent = new Intent(StartActivity.this, StartPopupActivity.class);
+        startActivity(intent);
+    }
 }
 
 

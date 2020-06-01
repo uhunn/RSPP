@@ -39,7 +39,7 @@
         android:textSize="50sp"
         android:text="버튼"
         android:id="@+id/mini_but"
-        android:onClick="btClick"/>
+        />
 
 
 </LinearLayout>

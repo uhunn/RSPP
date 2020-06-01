@@ -26,9 +26,9 @@
 
         <activity android:name=".FristPlayPopupActivity"
             android:theme="@style/popupTheme" android:screenOrientation="portrait"></activity>
-        <activity android:name=".Minigame"
-            android:theme="@style/AppTheme"
-            android:screenOrientation="landscape"></activity>
+        <activity android:name=".Minigame"></activity>
+        <activity android:name=".StartPopupActivity"
+            android:theme="@style/popupTheme" android:screenOrientation="portrait"/>
     </application>
 
 </manifest>

@@ -10,10 +10,11 @@ import android.widget.Button;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
-public class PopupActivity extends AppCompatActivity {
+public class StartPopupActivity extends AppCompatActivity {
 
 
     Button okBtn;
+    Button backBtn;
     int score = 0;
     int FPC = 0;
 
@@ -25,17 +26,27 @@ public class PopupActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
                 WindowManager.LayoutParams.FLAG_FULLSCREEN);
-        setContentView(R.layout.activity_pop);
+        setContentView(R.layout.activity_start_popup);
 
 
         okBtn = (Button) findViewById(R.id.pop_okbt);
+        backBtn = (Button) findViewById(R.id.pop_backbt);
     }
 
 
     public void mOK(View v){
+        switch (v.getId()){
+            case R.id.pop_okbt:
+                Intent intent = new Intent(StartPopupActivity.this, MainActivity.class);
+                startActivity(intent);
+                break;
 
-        Intent intent = new Intent(PopupActivity.this, MainActivity.class);
-        startActivity(intent);
+            case R.id.pop_backbt:
+                finish();
+                break;
+
+
+        }
     }
 
     public boolean onTouchEvent(MotionEvent event){
@@ -51,4 +62,3 @@ public class PopupActivity extends AppCompatActivity {
         return;
     }
 }
-

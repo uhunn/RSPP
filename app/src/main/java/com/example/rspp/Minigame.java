@@ -1,11 +1,12 @@
 package com.example.rspp;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.widget.TextView;
 import android.view.View;
 import android.widget.Button;
 
-import androidx.annotation.Nullable;
+
 import androidx.appcompat.app.AppCompatActivity;
 
 public class Minigame extends AppCompatActivity {
@@ -15,19 +16,42 @@ public class Minigame extends AppCompatActivity {
 
     TextView mi_co;
 
+    private Button mini_bt;
+
 
 
     @Override
-    protected void onCreate(@Nullable Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_pop);
+        setContentView(R.layout.activity_minigame);
 
         mi_co = findViewById(R.id.mini_coin);
-        
 
+        mini_bt = findViewById(R.id.mini_but);
+
+        mini_bt.setOnClickListener(new View.OnClickListener(){
+
+            @Override
+            public void onClick(View v) {
+
+                switch (v.getId()){
+                    case R.id.mini_but:
+                        i = i + 100;
+                        mi_co.setText("" + i);
+
+                        break;
+
+                }
+
+
+
+
+            }
+        });
 
 
 
 
     }
+
 }

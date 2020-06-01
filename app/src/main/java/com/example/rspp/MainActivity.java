@@ -16,10 +16,11 @@ public class MainActivity extends AppCompatActivity {
     TextView textView_start;
     TextView textView_setting;
     TextView s_c_v;
-    public int coin = 0;
+    public int coin;
     int FPC;
     int score;
     SharedPreferences pref_FPC;
+    SharedPreferences pref_coin;
 
         @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,16 +35,18 @@ public class MainActivity extends AppCompatActivity {
         s_c_v = findViewById(R.id.Start_Coin);
         mContext = this;
 
+
+        pref_coin = getSharedPreferences("coin", MODE_PRIVATE);
+        coin = pref_coin.getInt("coin", coin);
         s_c_v.setText("" + coin);
 
 
 
 
-            textView_start.setClickable(true);
-            textView_start.setOnClickListener(new View.OnClickListener() {
-                @Override
+        textView_start.setClickable(true);
+        textView_start.setOnClickListener(new View.OnClickListener() {
+            @Override
                 public void onClick(View v) {
-
                     if (FPC == 0){
                         coin = coin + 10;
                         FPC = FPC + 1;
@@ -80,7 +83,15 @@ public class MainActivity extends AppCompatActivity {
                     startActivity(intent);
                 }
             });
+
+
+
+
+
     }
 
+    public void onBackPressed(){
+            finish();
+    }
 
 }
